@@ -166,14 +166,13 @@ export default function App() {
           </p>
 
           <form onSubmit={handleSubmit} name="contact" data-netlify="true" method="POST" >
-            
             <input type="hidden" name="form-name" value="contact" />
 
             {/* Global Fields */}
             <div className="form-row">
               <input
                 type="text"
-                name="full_name"
+                name="name"
                 placeholder="Full Name / Entity Name"
                 required
                 className="input-field"
@@ -223,7 +222,7 @@ export default function App() {
               />
               <input
                 type="text"
-                name="area_city"
+                name="area"
                 placeholder="Area / City (Auto)"
                 value={location.area}
                 readOnly
