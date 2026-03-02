@@ -35,6 +35,23 @@
   </head>
   <body>
     <div id="root"></div>
+    <form name="contact" data-netlify="true" hidden>
+      <input type="text" name="name" />
+      <input type="email" name="email" />
+      <input type="tel" name="phone" />
+      <select name="user_role">
+        <option value="distributor"></option>
+        <option value="influencer"></option>
+        <option value="supplier"></option>
+        <option value="feedback"></option>
+      </select>
+      <input type="text" name="social_handle" />
+      <input type="text" name="pincode" />
+      <input type="text" name="area" />
+      <input type="text" name="state" />
+      <input type="text" name="country" />
+      <textarea name="message"></textarea>
+    </form>
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
