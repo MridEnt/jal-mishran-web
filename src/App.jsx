@@ -165,7 +165,8 @@ export default function App() {
             Register now for early access to our distribution network
           </p>
 
-          <form onSubmit={handleSubmit} name="contact" data-netlify="true">
+          <form onSubmit={handleSubmit} name="contact" data-netlify="true" method="POST" >
+            
             <input type="hidden" name="form-name" value="contact" />
 
             {/* Global Fields */}
