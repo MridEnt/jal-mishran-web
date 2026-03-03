@@ -1,6 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+
+    <!-- Google tag (gtag.js) -->
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-KVGL9M6CK0"></script>
+      <script>
+         window.dataLayer = window.dataLayer || [];
+         function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+        gtag('config', 'G-KVGL9M6CK0');
+      </script>
+
+
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -25,6 +37,7 @@
           "@type": "Offer",
           "url": "https://jalmishran.com",
           "priceCurrency": "INR",
+          "price": "20.00",
           "availability": "https://schema.org/PreOrder",
           "validFrom": "2026-03-15"
         }
@@ -36,11 +49,11 @@
   <body>
     <div id="root"></div>
     <form name="contact" data-netlify="true" hidden>
+      <input type="hidden" name="form-name" value="contact" />
       <input type="text" name="name" />
       <input type="email" name="email" />
       <input type="tel" name="phone" />
       <input type="text" name="user_role" />
-      <input type="text" name="social_handle" />
       <input type="text" name="pincode" />
       <input type="text" name="area" />
       <input type="text" name="state" />
@@ -49,6 +62,7 @@
       <input type="text" name="gst_pan" />
       <input type="text" name="dist_exp" />
       <input type="text" name="dist_area" />
+      <input type="text" name="social_handle" />
       <input type="text" name="supply_type" /> 
       <input type="text" name="supply_volume" />
       <input type="text" name="fb_type" />
@@ -56,6 +70,7 @@
       
       <textarea name="message"></textarea>
     </form>
+
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>

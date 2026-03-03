@@ -15,22 +15,31 @@ export default function App() {
   // Netlify AJAX submission logic
   const handleSubmit = (e) => {
     e.preventDefault();
-    const formData = new FormData(e.target);
-  
-    // FORCE INJECT: Ensures read-only and state-based data is never blank
+    const form = e.target; // Reference to the form element
+    const formData = new FormData(form);
+
+    // 1. Ensure Pincode API data is injected (Fixes blank Area/State)
     formData.set('area', location.area);
     formData.set('state', location.state);
     formData.set('country', location.country);
-  
+
     fetch('/', {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: new URLSearchParams(formData).toString(),
     })
-      .then(() => setShowSuccess(true))
+      .then(() => {
+        setShowSuccess(true);
+        
+        // 2. Reset the form fields and React state for re-submission
+        form.reset(); 
+        setRole('');
+        setLocation({ area: '', state: '', country: 'India' });
+      })
       .catch((error) => alert(error));
   };
 
+  
   const handlePincode = async (e) => {
     const pin = e.target.value;
     if (pin.length === 6) {
@@ -58,11 +67,11 @@ export default function App() {
       {/* HEADER */}
       <nav className="glass-nav">
         <div>
-          <h1 className="logo-main">JAL MISHRAN</h1>
+          <h1 className="logo-main">JAL MISHRAN &trade;</h1>
           <p className="tagline">Virasat ka Swad, Wellness ka Vaada</p>
         </div>
         <a href="#contact" className="primary-btn">
-          Join Network
+          Connect with us
         </a>
       </nav>
 
@@ -395,11 +404,14 @@ export default function App() {
                 shortly.
               </p>
               <button
-                onClick={() => setShowSuccess(false)}
+                onClick={() => {
+                  setShowSuccess(false);
+                  window.scrollTo({ top: document.getElementById('contact').offsetTop, behavior: 'smooth' });
+                }}
                 className="primary-btn"
                 style={{ marginTop: '20px' }}
               >
-                Back to Site
+                New Inquiry / Refresh Form
               </button>
             </motion.div>
           </div>
@@ -460,7 +472,7 @@ export default function App() {
           </div>
         </div>
         <p className="copyright">
-          © 2026 Jal Mishran | Virasat ka Swad, Wellness ka Vaada
+          © 2026 Jal Mishran &trade; | Virasat ka Swad, Wellness ka Vaada
         </p>
       </footer>
     </div>
