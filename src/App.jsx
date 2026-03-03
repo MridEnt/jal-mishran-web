@@ -16,6 +16,12 @@ export default function App() {
   const handleSubmit = (e) => {
     e.preventDefault();
     const formData = new FormData(e.target);
+  
+    // FORCE INJECT: Ensures read-only and state-based data is never blank
+    formData.set('area', location.area);
+    formData.set('state', location.state);
+    formData.set('country', location.country);
+  
     fetch('/', {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
