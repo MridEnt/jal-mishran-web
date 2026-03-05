@@ -1,6 +1,11 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import './App.css';
+import Clarity from '@microsoft/clarity';
+
+// Microsoft Clarity
+const projectId = "vr4sc5u24f"
+Clarity.init(projectId);
 
 export default function App() {
   const [role, setRole] = useState('');
